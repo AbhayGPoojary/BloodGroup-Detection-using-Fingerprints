@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Login</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../static/img/favicon.png" rel="icon">
+  <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../static/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: QuickStart
+  * Template URL: https://bootstrapmade.com/quickstart-bootstrap-startup-website-template/
+  * Updated: Jun 29 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+<style>
+  /* :root {
+      --background-color: #ffffff;
+      --default-color: #333333;
+      --heading-color: #9A3A8E;
+      --accent-color: #D22666;
+      --surface-color: #ffffff;
+      --contrast-color: #ffffff;
+    } */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f7fc;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      
+      color: white;
+      padding: 20px 0;
+
+    }
+    
+    header .logo h1 {
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin-left: 15px;
+      color: var(--contrast-color);
+    }
+ 
+     
+    .login-split-container {
+      display: flex;
+      min-height: 80vh;
+      margin: 20px auto;
+      max-width: 1200px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .image-side {
+      flex: 1;
+      background: url('../static/img/2.webp');
+      background: color-mix(in srgb, var(--accent-color), transparent 85%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .image-side .logo-container {
+      text-align: center;
+      margin-bottom: 30px;
+      z-index: 2;
+    }
+
+    .image-side .logo-container img {
+      max-width: 180px;
+      margin-bottom: 20px;
+    }
+
+    /* .image-side .logo-container h2 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .image-side .logo-container p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.1rem;
+    }
+
+    .image-side .hero-image {
+      max-width: 80%;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    } */
+    
+
+    .form-side {
+      flex: 1;
+      background-color: white;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-side h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.75rem;
+      color: var(--heading-color);
+    }
+
+    .form-side form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-side label {
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #555;
+    }
+
+    .form-side input[type="text"],
+    .form-side input[type="password"] {
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+      background-color: #f9f9f9;
+    }
+
+    .form-side input[type="text"]:focus,
+    .form-side input[type="password"]:focus {
+      border-color: var(--accent-color);
+      background-color: #fff;
+    }
+
+    .form-side input[type="submit"] {
+      padding: 14px;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .form-side input[type="submit"]:hover {
+      background-color: #C01F55;
+      transform: scale(1.05);
+    }
+
+    .form-side .signup-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .form-side .signup-link a {
+      text-decoration: none;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .form-side .signup-link a:hover {
+      text-decoration: underline;
+    }
+
+    .back {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .back a {
+      font-size: 1.25rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back a:hover {
+      text-decoration: underline;
+    }
+
+    /* Flash Messages */
+    .flash-messages {
+      margin: 20px auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .flash-message {
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .flash-message.success {
+      background-color: #4CAF50;
+      color: white;
+      border: 1px solid #388E3C;
+    }
+
+    .flash-message.error {
+      background-color: #E92231; /* Using the red from your color scheme */
+      color: white;
+      border: 1px solid #C41C2A;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 992px) {
+      .login-split-container {
+        flex-direction: column;
+        margin: 10px;
+      }
+
+      .image-side, .form-side {
+        padding: 30px;
+      }
+      
+      .image-side {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header .logo h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+
+
+</head>
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="/home" class="logo d-flex align-items-center me-auto">
+        <img src="../static/img/smvitm3.png" alt="">
+        <h1 class="sitename">Bloodgroup Prediction</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/home" >Home</a></li>
+          <!-- <li><a href="/about">About</a></li> -->
+          <li><a href="/team">Team</a></li>
+          <li><a href="/login" class="active">Login</a></li>
+          <li><a href="/signup" >Sign Up</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <div style="height: 100px;"></div> <!-- Spacer to account for fixed header -->
+    
+    <div class="login-split-container">
+      <!-- Left side with image and logo -->
+      <div class="image-side">
+        
+        <div class="logo-container">
+          <img src="../static/img/smvitm3.png" alt="Logo">
+          <h2>Bloodgroup Prediction</h2>
+          <p>New way of Predicting Blood Group with Fingerprint</p>
+        </div>
+      </div>
+      
+      <!-- Right side with login form -->
+      <div class="form-side">
+        <h2>Login to Your Account</h2>
+        <form action="/login" method="post">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required aria-required="true" placeholder="Enter your username">
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required aria-required="true" placeholder="Enter your password">
+
+          <input type="submit" value="Login">
+        </form>
+        <div class="signup-link">
+          <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="flash-messages">
+              {% for category, message in messages %}
+                <div class="flash-message {{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+  </main>
+
+</footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/vendor/php-email-form/validate.js"></script>
+  <script src="../static/vendor/aos/aos.js"></script>
+  <script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>

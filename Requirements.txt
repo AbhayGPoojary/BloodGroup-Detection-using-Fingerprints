@@ -1,0 +1,41 @@
+# # Steps to install packages
+
+# # Step 1: Install Conda packages (run these commands in your terminal)
+# # conda install -c conda-forge keras
+# # conda install -c anaconda scikit-learn
+# # conda install -c conda-forge opencv
+# # conda install -c anaconda scikit-image
+# # conda install -c anaconda flask
+# conda install numpy
+# conda install pillow
+# tensorflow
+# keras
+# opencv-python
+# numpy
+# matplotlib
+# scikit-learn
+
+
+# # Step 2: Install Pip packages (run this command in your terminal)
+# pip install -r requirements.txt
+
+# # Pip packages to be installed
+# tensorflow
+# pandas
+# werkzeug==2.3.7
+# torch
+# torchvision
+# torchaudio
+# flask-wtf
+# wtforms
+
+# If you have any questions, need project reports or PowerPoint presentations, or require the complete code and setup instructions, don't hesitate to contact me:
+
+# 📧 Email: karthikgr1908@gmail.com
+tensorflow
+keras
+opencv-python
+numpy
+matplotlib
+scikit-learn
+Pillow

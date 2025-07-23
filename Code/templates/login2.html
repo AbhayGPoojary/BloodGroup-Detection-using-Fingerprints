@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Upload | Blood Group Prediction</title>
+  <meta content="Blood Group Prediction Using Fingerprints" name="description">
+  <meta content="blood group, fingerprint, prediction" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../static/img/favicon.png" rel="icon">
+  <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../static/css/main.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #9A3A8E;
+      --secondary-color: #D22666;
+      --accent-color: #E92231;
+      --light-bg: #f8f9fa;
+      --dark-text: #333;
+      --white: #ffffff;
+    }
+
+    
+
+    
+
+    /* Main Content Styles */
+    .prediction-section {
+      padding: 120px 0 60px;
+      background: var(--white);
+    }
+
+    .prediction-container {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .image-side {
+      flex: 1;
+      background: linear-gradient(135deg, #ddabfa, #ffa7c7);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+    }
+
+    .image-side img.logo {
+      max-width: 180px;
+      margin-bottom: 30px;
+    }
+
+    .image-side h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .image-side p {
+      font-size: 1.1rem;
+      text-align: center;
+      opacity: 0.9;
+    }
+
+    .image-side .illustration {
+      max-width: 80%;
+      margin-top: 30px;
+    }
+
+    .form-side {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-side h2 {
+      color: var(--primary-color);
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .upload-form {
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .upload-area {
+      border: 2px dashed var(--primary-color);
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      margin-bottom: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .upload-area:hover {
+      background-color: rgba(164, 57, 224, 0.05);
+    }
+
+    .upload-area i {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .upload-area p {
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .upload-area small {
+      display: block;
+      color: #999;
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    #imagePreview {
+      max-width: 100%;
+      max-height: 250px;
+      border-radius: 10px;
+      display: none;
+      margin: 20px auto;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .predict-btn {
+      background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+      color: white;
+      border: none;
+      padding: 14px 20px;
+      width: 100%;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(210, 38, 102, 0.3);
+    }
+
+    .predict-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(210, 38, 102, 0.4);
+    }
+
+    .predict-btn:active {
+      transform: translateY(1px);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .prediction-container {
+        flex-direction: column;
+      }
+
+      .image-side {
+        padding: 30px;
+      }
+
+      .form-side {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .prediction-section {
+        padding: 100px 20px 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <a href="/home" class="logo d-flex align-items-center">
+        <img src="../static/img/smvitm3.png" alt="Logo">
+        <h1 class="sitename">Bloodgroup Prediction</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/team">Team</a></li>
+          {% if 'user_id' in session %}
+            <li><a href="/predict_blood_group" class="active">Predict</a></li>
+            <!-- <li><a href="/Accurancy">Accuracy</a></li> -->
+            <li><a href="/profile"><i class="bi bi-person-circle"></i> Profile</a></li>
+            <li><a href="/logout" class="logout-link">
+                <i class="bi bi-box-arrow-right"></i> Logout
+              </a></li>
+          {% else %}
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+          {% endif %}
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Prediction Section -->
+    <section class="prediction-section">
+      <div class="container">
+        <div class="prediction-container">
+          <!-- Left Side - Image and Description -->
+          <div class="image-side">
+            <img src="../static/img/smvitm3.png" alt="Logo" class="logo">
+            <h2>Blood Group Prediction</h2>
+            <p>Quick and accurate blood group prediction using advanced fingerprint analysis technology</p>
+            <!-- <img src="../static/img/33.webp" alt="Fingerprint Illustration" class="illustration"> -->
+          </div>
+
+          <!-- Right Side - Upload Form -->
+          <div class="form-side">
+            <h2>Upload Fingerprint</h2>
+            <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data" class="upload-form">
+              <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                <i class="bi bi-fingerprint"></i>
+                <p>Click to upload or drop your fingerprint image</p>
+                <small>Supported formats: JPG, PNG, BMP</small>
+              </div>
+              <input type="file" name="file" id="fileInput" class="file-input" accept="image/*" onchange="displayImage(this)">
+              
+              <img id="imagePreview" src="" alt="Image Preview">
+              
+              <button type="submit" class="predict-btn">
+                <i class="bi bi-search me-2"></i> Predict Blood Group
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <!-- <footer id="footer" class="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy;<strong><span>Team-T29 , SMVITM</span></strong>.
+      </div>
+    </div>
+  </footer> -->
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/vendor/aos/aos.js"></script>
+  <script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../static/js/main.js"></script>
+
+  <script>
+    function displayImage(input) {
+      const imagePreview = document.getElementById('imagePreview');
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          imagePreview.src = e.target.result;
+          imagePreview.style.display = 'block';
+        }
+        reader.readAsDataURL(input.files[0]);
+      } else {
+        imagePreview.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

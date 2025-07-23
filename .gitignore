@@ -1,0 +1,52 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+VENV/
+.venv/
+
+# VS Code / PyCharm project settings
+.idea/
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment files
+.env
+*.env
+
+# SQLite database
+*.db
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Python egg metadata
+*.egg-info/
+*.egg
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Test data, if dynamically generated
+/Test Images/
+
+/dataset_blood_group
+
+
+dataset_blood_group/
+Report & PPT/
+Research Paper/
+Results/
+venv/
