@@ -31,7 +31,7 @@ This is a web application that predicts a person's **blood group** based on an u
 
 ### Model Name: `SimpleCNN`
 
-- **Input**: Grayscale image of size 128x128
+
 <!-- - **Architecture**:
   - `Conv2d(1, 32, kernel_size=3)`
   - `ReLU()`
